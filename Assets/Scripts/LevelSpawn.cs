@@ -5,7 +5,7 @@ public class LevelSpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		SpawnRoadChunk (30);
+		SpawnRoadChunk (300);
 	}
 
 	void SpawnRoadChunk(int road) {
@@ -24,12 +24,14 @@ public class LevelSpawn : MonoBehaviour {
 			} else {
 				zPos +=5f;
 			}
-			
+
+			/*
 			if(Random.value > 0.5f){
 				yPos += (Random.Range(0,6) / 10f);
 			} else {
 				yPos -= (Random.Range (0,6) / 10f);
 			}
+			*/
 		}
 	}
 }
