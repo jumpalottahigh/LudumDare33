@@ -5,31 +5,31 @@ public class LevelSpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SpawnRoadChunk (30);
+	}
+
+	void SpawnRoadChunk(int road) {
 		float xPos = 0f;
 		float zPos = 0f;
 		float yPos = 1f;
-
+		
 		bool hasGap = false;
 		float rand = 0f;
-
-		for (int i = 0; i < 30; i++) {
+		
+		for (int i = 0; i < road; i++) {
 			Instantiate(Resources.Load("Prefabs/Road"), new Vector3(xPos, yPos, zPos), Quaternion.identity);
 
-			if(Random.value > 0.1f){
-				xPos += 5f;
-				zPos += 5f;
+			if(Random.value > 0.5f){
+				xPos +=5f;
 			} else {
-				rand = Random.Range(10, 15);
-				xPos += rand;
-				zPos += rand;
+				zPos +=5f;
 			}
-
-			yPos = (Random.Range(15, 31) / 10f);
+			
+			if(Random.value > 0.5f){
+				yPos += (Random.Range(0,6) / 10f);
+			} else {
+				yPos -= (Random.Range (0,6) / 10f);
+			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
